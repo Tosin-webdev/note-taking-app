@@ -39,6 +39,7 @@
 // argument parsing with yargs
 // const chalk = require("chalk");
 // import chalk from "chalk";
+const { demandOption, string } = require("yargs");
 const yargs = require("yargs");
 
 console.log(process.argv);
@@ -57,9 +58,14 @@ yargs.command({
       demandOption: true,
       type: "string",
     },
+    body: {
+      describe: "Note body",
+      demandOption: true,
+      type: "string",
+    },
   },
   handler: function (argv) {
-    console.log("Adding a new note!", argv);
+    console.log("Title: " + argv.title);
   },
 });
 
