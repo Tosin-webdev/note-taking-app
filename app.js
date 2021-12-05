@@ -39,7 +39,7 @@
 // argument parsing with yargs
 // const chalk = require("chalk");
 // import chalk from "chalk";
-const { demandOption, string } = require("yargs");
+const chalk = require("chalk");
 const yargs = require("yargs");
 const notes = require("./notes.js");
 
