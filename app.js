@@ -37,9 +37,10 @@
 // }
 
 // argument parsing with yargs
+
 // const chalk = require("chalk");
 // import chalk from "chalk";
-const chalk = require("chalk");
+// const chalk = require("chalk");
 const yargs = require("yargs");
 const notes = require("./notes.js");
 
@@ -66,8 +67,6 @@ yargs.command({
     },
   },
   handler: function (argv) {
-    // console.log("Title: " + argv.title);
-    // console.log("Body: " + argv.body);
     notes.addNote(argv.title, argv.body);
   },
 });

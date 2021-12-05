@@ -18,10 +18,19 @@ const addNote = function (title, body) {
   }
 };
 
+const saveNotes = function (notes) {
+  const dataJson = JSON.stringify(notes);
+  fs.writeFileSync("notes.json", dataJson);
+};
+
 const loadRoutes = function () {
-  const dataBuffer = fs.readFileSync("notes.json");
-  const dataJson = dataBuffer.toString();
-  return JSON.parse(dataJson);
+  try {
+    const dataBuffer = fs.readFileSync("notes.json");
+    const dataJson = dataBuffer.toString();
+    return JSON.parse(dataJson);
+  } catch (error) {
+    return [];
+  }
 };
 
 module.exports = { getNotes: getNotes, addNote: addNote };
