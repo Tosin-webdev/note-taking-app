@@ -2,6 +2,14 @@ const getNotes = () => {
   return "your notes";
 };
 
-const addNote = function (title, body) {};
+const addNote = function (title, body) {
+  const notes = loadRoutes();
+};
 
-module.exports = { getNotes, addNote };
+const loadRoutes = function () {
+  const dataBuffer = fs.readFileSync("notes.json");
+  const dataJson = dataBuffer.toString();
+  return JSON.parse(dataJson);
+};
+
+module.exports = { getNotes: getNotes, addNote: addNote };
